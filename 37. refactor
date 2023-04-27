@@ -1,0 +1,18 @@
+def horizontal(x):
+    for i in range(x):
+        print(" ---", end = "")
+    print()
+    
+def vertical(x):
+    for i in range(x):
+        print("|   ", end = "")
+    print("|")
+
+
+def grid(x):
+    for i in range(x):
+        horizontal(x)
+        vertical(x)
+    horizontal(x)
+
+grid(5)
