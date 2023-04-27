@@ -1,0 +1,25 @@
+print("""Think of a number between 0 and 100.
+I will try to guess your number.
+Enter 'h' to indicate my guess is too high.
+Enter 'l' to indicate my guess is too low.
+Enter 'c' to indicate my guess is correct.
+Now, let's start the game.""")
+#starting numbers
+low = 0
+high = 100
+while True:
+    try:
+        guess = (high + low) // 2
+        print(f"Is your number: {guess}?")
+        r = input("Enter Answer: ").lower()[0]
+        if r == "h":
+            high = guess
+        elif r == "l":
+            low = guess
+        elif r == "c":
+            print("Thanks for playing with me!")
+            q = input("Would you like to play again? (y/n): ").lower()[0]
+            if q == "n":
+                break
+    except ValueError:
+        print("Please enter a number: ")
