@@ -1,0 +1,44 @@
+import random
+word = []
+with open('sowpods.txt', 'r') as f:
+    line = f.readlines()
+    word = random.choice(line).strip()
+    print(word)
+
+print("Welcome to Hangman!")
+
+blanks = [("_ ") for i in range(len(word))]
+for i in blanks:
+    print(i, end="")
+used_letters = []
+
+def word_len():
+    for i in blanks:
+        print(i + " ",end = "")
+    print()
+        
+def hanging(x,character):
+    for i in x:
+        blanks[i] = user_input
+    word_len()
+
+while True:
+    print()
+    user_input = input("Guess a letter: ").upper()
+    if user_input in used_letters:
+        print("You have already guessed that letter.")
+        word_len()
+        continue
+    if len(user_input) > 1 or user_input.isnumeric():
+        print("Enter a letter.")
+        word_len()
+        continue
+    used_letters.append(user_input)
+    if user_input in word:
+        hanging([i for i, c in enumerate(word) if c == user_input],user_input)
+    if user_input not in word:
+        print(f"{user_input} is not in the word.")
+        word_len()
+    if "_ " not in blanks:
+        print(f"\nCongratulations! The word was {word}.")
+        break
