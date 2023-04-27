@@ -1,0 +1,17 @@
+name_birthday = {"Jace Herondale": "January 18th",
+                   "Clary Fairchild" : "August 23rd",
+                   "Alec Lightwood" : "September 12th",
+                   "Magnus Bane" : "December 8th"}
+
+print("Welcome to the birthday dictionary. We know the birthdays of: ")
+for i in name_birthday:
+    print(i)
+
+while True:
+    name = input("Who's birthday do you want to look up? (enter their full name): ").title()
+    if name in name_birthday:
+        print(f"{name}'s birthday is on {name_birthday[name]}!")
+        break
+    else:
+        print("Please enter full name and check for spelling errors.")
+        continue
