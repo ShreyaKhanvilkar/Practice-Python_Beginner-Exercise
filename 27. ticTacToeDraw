@@ -1,0 +1,86 @@
+print("Welcome to Tic-Tac-Toe!")
+player_one = input("Player One - Enter your name: ")
+player_two = input("Player Two - Enter your name: ")
+print(f"""You will be inputting the coordinates for the spot/move you want to play.
+Row first, then column, and use a comma to seperate your numbers.
+The coordinates would start at the top left and end at the bottom right.
+For example: (1,1) would be the coordinate on the top left, (1, 3)
+would be top right, and (2,2) would be the middle spot.
+Enter your move without any paranthesis or spaces.
+{player_one} will be X and {player_two} will be O""")
+
+#empty gameboard
+game = [[0,0,0],
+        [0,0,0],
+        [0,0,0]]
+
+def one():
+    while True:
+        try:
+#entering move and stripping it down
+            play_one = input(f"{player_one} - Enter your move: ").strip().split(",")
+#turning move into a list
+            play_one = [int(x)-1 for x in play_one]
+#making sure move is in range
+            if play_one[0] > 3 or play_one[1] > 3 or len(play_one) != 2:
+                print("Please enter an acceptable move.")
+                continue
+#making sure move is empty/not already played
+            if game[play_one[0]][play_one[1]] != 0:
+                print("Someone has already played here. Pick a different spot.")
+                continue
+#adding move to gameboard
+            game[play_one[0]][play_one[1]] = "X"
+            print(game)
+            break
+#accounting for errors
+        except ValueError:
+            print("Please enter an acceptable move.")
+            continue
+        except IndexError:
+            print("Please enter an acceptable move.")
+            continue
+
+#same as above, but for player two
+def two():
+    while True:
+        try:
+            play_two = input(f"{player_two} - Enter your move: ").strip().split(",")
+            play_two = [int(x)-1 for x in play_two]
+            if play_two[0] > 3 or play_two[1] > 3 or len(play_two) != 2:
+                print("Please enter an acceptable move.")
+                continue
+            if game[play_two[0]][play_two[1]] != 0:
+                print("Someone has already played here. Pick a different spot.")
+                continue
+            game[play_two[0]][play_two[1]] = "O"
+            print(game)
+            break
+        except ValueError:
+            print("Please enter an acceptable move.")
+            continue
+        except IndexError:
+            print("Please enter an acceptable move.")
+            continue
+
+def playing():
+#keeping track of whose turn it is
+    count = 0
+#keeping track of empty spaces of board
+    keep = True
+    while keep:
+#players playing
+        if count % 2 == 0:
+            one()
+        else:
+            two()
+        count += 1
+
+#making sure there are moves left
+        keep = False
+        for i in range(0,3):
+            for j in range(0,3):
+                if game[i][j] == 0:
+                    keep = True
+
+playing()
