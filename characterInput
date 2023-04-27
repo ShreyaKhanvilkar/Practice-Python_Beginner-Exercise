@@ -1,0 +1,8 @@
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+print("You will be 100 years old in the year ", end="")
+print(100-age+2023)
+printing_number_multiple_times = int(input("Pick an number: "))
+for i in range(printing_number_multiple_times):
+    print("You will be 100 years old in the year ", end="")
+    print(100-age+2023)
