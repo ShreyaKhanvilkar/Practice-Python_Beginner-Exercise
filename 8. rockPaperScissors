@@ -1,0 +1,24 @@
+while True:
+    player_one = input("Player One - Rock, Paper, or Scissors: ").lower()
+    player_two = input("Player Two - Rock, Paper, or Scissors: ").lower()
+
+    if player_one[0] == player_two[0]:
+        print("Tie") 
+    elif player_one[0] == "r":
+        if player_two[0] == "s":  
+            print("Player One Wins") #One=Rock,Two=Scissors
+        else:
+            print("Player Two Wins") #One=Rock,Two=Paper
+    elif player_one[0] == "p":
+        if player_two[0] == "s":  
+            print("Player Two Wins") #One=Paper,Two=Scissors
+        else:
+            print("Player One Wins") #One=Paper,Two=Rock
+    else:
+        if player_two[0] == "r":  
+            print("Player Two Wins") #One=Scissors,Two=Rock
+        else:
+            print("Player One Wins") #One=Scissors,Two=Paper
+    question = input("Play again? (y/n): ").lower()
+    if question[0] == "n":
+        break
