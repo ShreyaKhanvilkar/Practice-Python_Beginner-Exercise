@@ -1,0 +1,20 @@
+import random
+generate_number = random.randint(1,9)
+guess = 0
+while True:
+    user_number = int(input("Guess a number from 1 to 9: "))
+    guess += 1
+    if user_number > 9:
+        print("Please guess a number between 1 and 9")
+    elif generate_number != user_number:
+        if generate_number > user_number:
+            print("Your guess is too low.")
+        else:
+            print("Your guess is too high")
+    else:
+        print(f"Your guess is correct.\nIt took you {guess} guesses.")
+        guess = 0
+        again = input("Would you like to play again? (y/n): ").lower()
+        if again[0] == "n":
+            print("Thank you for playing.")
+            break
