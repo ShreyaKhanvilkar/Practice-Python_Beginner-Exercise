@@ -8,11 +8,11 @@ def vertical(x):
         print("|   ", end = "")
     print("|")
 
-
-def grid(x):
+def grid():
+    x = int(input("Enter a number for grid size: "))
     for i in range(x):
         horizontal(x)
         vertical(x)
     horizontal(x)
 
-grid(5)
+grid()
