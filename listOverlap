@@ -1,0 +1,30 @@
+# First
+list_one = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+list_two = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+list_onetwo = []
+
+for one in list_one:
+    for two in list_two:
+        if one == two:
+            list_onetwo.append(one)
+
+## dict.fromkeys() removes all duplicates from a list because a dictionary cannot contain duplicates
+## so turn the list into a dictionary, then turn it back into a list
+list_onetwo = list(dict.fromkeys(list_onetwo))
+print(list_onetwo)
+
+# Second
+import random
+list_one = [random.randint(1,6) for i in range(10)]
+list_two = [random.randint(1,6) for i in range(10)]
+list_onetwo = []
+
+for one in list_one:
+    for two in list_two:
+        if one == two:
+            list_onetwo.append(one)
+
+list_onetwo = list(dict.fromkeys(list_onetwo))
+print(list_one)
+print(list_two)
+print(list_onetwo)
