@@ -1,0 +1,8 @@
+number = int(input("Enter a number: "))
+list_range = list(range(1,number+1))
+list_div = []
+
+for numbers in list_range:
+    if number % numbers == 0:
+        list_div.append(numbers)
+print(list_div)
