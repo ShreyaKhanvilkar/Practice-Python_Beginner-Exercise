@@ -1,0 +1,45 @@
+import random
+
+#making sure that number does not contain duplicate numbers 
+number = []
+while len(number) != 4:
+    number = list(dict.fromkeys([(random.randint(0,9)) for x in range(0,4)]))
+    number ="".join(str(x) for x in number)
+    print(number)
+
+#starting game and asking for input
+print("Welcome to Cows and Bulls.")
+guesses = 0
+while True:
+    cows = 0
+    bulls = 0
+    user_number = input("Enter your four-digit guess (no repeated digits): ")
+
+#making sure  input is four digits long
+    if len(user_number) != 4:
+        print("Error - Not a four digit number.")
+        continue
+
+#making sure that user input does not contain duplicate numbers 
+    user_number = list(dict.fromkeys([x for x in user_number]))
+    if len(user_number) != 4:
+        print("Error - No repeated digits.")
+        continue
+
+#turning number back into a str and counting a guess
+    user_number ="".join(str(x) for x in user_number)
+    guesses += 1
+
+#correct guess
+    if user_number == number:
+        print(f"Congratulation! You are correct. It took you {guesses} guesses.")
+        break
+
+#outputting cows and bulls
+    for x in range(0,4):
+        if number[x] == user_number[x]:
+            cows += 1
+        elif user_number[x] in number:
+            bulls += 1
+    print(f"Cows: {cows}")
+    print(f"Bulls: {bulls}")
