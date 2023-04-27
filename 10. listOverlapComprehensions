@@ -1,0 +1,26 @@
+# For Loops
+import random
+list_one = [random.randint(1,20) for x in range(0,10)]
+list_two = [random.randint(1,20) for x in range(0,10)]
+duplicates = []
+for x in list_one:
+    for y in list_two:
+        if x == y:
+            duplicates.append(x)
+duplicates = list(dict.fromkeys(duplicates))
+print(list_one)
+print(list_two)
+print(duplicates)
+
+# One Line
+import random
+list_one = [random.randint(1,20) for a in range(0,10)]
+list_two = [random.randint(1,20) for b in range(0,10)]
+duplicates = [x for x in list_one if x in list_two]
+print(list_one)
+print(list_two)
+print(duplicates)
+
+# Just For Fun
+import random
+print([x for x in [random.randint(1,20) for a in range(0,10)] if x in [random.randint(1,20) for b in range(0,10)]])
