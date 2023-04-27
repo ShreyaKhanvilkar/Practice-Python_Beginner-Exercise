@@ -1,0 +1,44 @@
+#getting the two characters needed"
+x = "-"
+y = "|   "
+while True:
+    try:
+        grid = int(input("Enter a number: "))
+
+#making sure that there is a space before each dash-group
+        def top():
+            print("", x*3, end = "")
+
+#making sure top is repeatable
+        def tops():
+            for i in range(grid):
+                top()
+            print()
+
+#making sure that middle has an extra line at the end
+        def middle():
+            print(y*grid+y)
+
+#making the box
+        def box():
+            tops()
+            middle()
+
+#ending the box
+        def end():
+            tops()
+
+#making sure box is repeatable    
+        def total():
+            for i in range(grid):
+                box()
+            end()
+
+        total()
+
+        q = input("Would you like another grid? (y/n): ").lower()[0]
+        if q == "n":
+            break
+
+    except ValueError:
+        print("Please enter a number: ")
