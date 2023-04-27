@@ -1,0 +1,13 @@
+# First
+user_string = list(input("Enter a String: ").split(" "))
+reverse_string = []
+def reverse(x):
+    while len(x) > 0:
+        reverse_string.append(x[-1])
+        x.pop()
+    print(" ".join(reverse_string))
+reverse(user_string)
+
+# Short
+user_string = list(input("Enter a String: ").split(" "))
+print(" ".join(user_string[::-1]))
