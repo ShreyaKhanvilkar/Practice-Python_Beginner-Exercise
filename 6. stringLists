@@ -1,0 +1,20 @@
+# String Reversal
+user_word = input("Enter a word: ")
+palindrome = user_word[::-1]
+if user_word == palindrome:
+    print(user_word, "is a palindrome")
+else:
+    print(user_word, "is not a palindrome")
+
+# Loops
+def reverse(word):
+    x = ""
+    for i in range(len(word):
+        x += word[len(word)-1-i]
+    return x
+user_word = input("Enter a word: ")
+palindrome = reverse(user_word)
+if user_word == palindrome:
+    print(user_word, "is a palindrome")
+else:
+    print(user_word, "is not a palindrome")  
