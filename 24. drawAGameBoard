@@ -1,3 +1,23 @@
+#better version
+def horizontal(x):
+    for i in range(x):
+        print(" ---", end = "")
+    print()
+    
+def vertical(x):
+    for i in range(x):
+        print("|   ", end = "")
+    print("|")
+
+def grid():
+    x = int(input("Enter a number for grid size: "))
+    for i in range(x):
+        horizontal(x)
+        vertical(x)
+    horizontal(x)
+
+grid()
+
 #getting the two characters needed"
 x = "-"
 y = "|   "
