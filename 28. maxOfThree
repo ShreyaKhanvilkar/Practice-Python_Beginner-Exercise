@@ -1,0 +1,30 @@
+#first
+one = int(input("Number One: "))
+two = int(input("Number Two: "))
+three = int(input("Number Three: "))
+
+if one > two:
+    if one > three:
+        print(one)
+    else:
+        print(three)
+elif two > one:
+    if two > three:
+        print(two)
+    else:
+        print(three)
+else:
+    print(three)
+
+#second
+one = int(input("Number One: "))
+two = int(input("Number Two: "))
+three = int(input("Number Three: "))
+
+if one > two and one > three:
+    print(one)
+if two > one and two > three:
+    print(two)
+#this or just return(three) since there is no other option
+if three > one and three > two:
+    print(three)
