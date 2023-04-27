@@ -1,0 +1,17 @@
+# Using Dictionary
+import random
+duplicate = [random.randint(1,10) for x in range(20)]
+print(duplicate)
+print(list(dict.fromkeys(duplicate)))
+
+# Using Set
+import random
+duplicate = [random.randint(1,10) for x in range(20)]
+print(duplicate)
+print(list(set(duplicate)))
+
+# Function
+import random
+def duplicates(numbers):
+    print(list(dict.fromkeys(numbers)))
+    duplicates([random.randint(1,10) for x in range(20)])
