@@ -1,0 +1,7 @@
+user_number = int(input("Enter a number: "))
+def prime(x):
+    for i in range(2,x):
+        if x % i == 0:
+            return f"{x} is not a prime number."
+    return f"{x} is prime number."
+print(prime(user_number))
