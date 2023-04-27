@@ -1,0 +1,65 @@
+import random
+
+global word
+global blanks
+global used_letters
+
+def choose_word():
+    with open('sowpods.txt', 'r') as f:
+        line = f.readlines()
+        global word
+        word = random.choice(line).strip()
+        print(word)
+
+def word_len():
+    for i in blanks:
+        print(i + " ",end = "")
+    print()
+        
+def hanging(x,character):
+    for i in x:
+        blanks[i] = character
+    word_len()
+
+def play():
+    lives = 6
+    while lives > 0:
+        print()
+        user_input = input("Guess a letter: ").upper()
+        if user_input in used_letters:
+            print("You have already guessed that letter.")
+            word_len()
+            continue
+        if len(user_input) > 1 or user_input.isnumeric() or user_input == "":
+            print("Enter a letter.")
+            word_len()
+            continue
+        used_letters.append(user_input)
+        if user_input in word:
+            hanging([i for i, c in enumerate(word) if c == user_input],user_input)
+            print(f"{user_input} is in the word. You have {lives} lives left.")
+        if user_input not in word:
+            lives -= 1
+            print(f"{user_input} is not in the word. You have {lives} lives left.")
+            word_len()
+        if lives == 0:
+            print(f"\nYou have lost. The word was {word}\n")
+        if "_ " not in blanks:
+            print(f"\nCongratulations! The word was {word}. You had {lives} lives left.\n")
+            break
+
+print("Welcome to Hangman!")
+
+while True:
+    used_letters = []
+    choose_word()
+    blanks = [("_ ") for i in range(len(word))]
+    for i in blanks:
+        print(i, end="")
+    play()
+    q = input("Would you like to play again? (y/n): ")
+    while q != "y" and q != "n":
+        q = input("Would you like to play again? (y/n): ")
+    if q == "n":
+        print("\nThank you for playing!")
+        break
