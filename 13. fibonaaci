@@ -1,0 +1,12 @@
+user_number = int(input("How many numbers of the Fibonnci Sequence would you like?: "))
+def fib(x):
+    sequence = [1,1]
+    count = 2
+    if user_number == 1:
+        print([1])
+    else:
+        while count < x:
+            sequence.append(sequence[-1]+sequence[-2])
+            count += 1
+        print(sequence)
+fib(user_number)
