@@ -1,9 +1,11 @@
 import random
 
+#making these variable global so that they can be used and changed in functions
 global word
 global blanks
 global used_letters
 
+#choosing a word from sowpods file
 def choose_word():
     with open('sowpods.txt', 'r') as f:
         line = f.readlines()
@@ -11,11 +13,13 @@ def choose_word():
         word = random.choice(line).strip()
         print(word)
 
+#printing the word characters as they are being guessed
 def word_len():
     for i in blanks:
         print(i + " ",end = "")
     print()
-        
+
+#setting letters as they are being guessed
 def hanging(x,character):
     for i in x:
         blanks[i] = character
@@ -34,6 +38,7 @@ def play():
             print("Enter a letter.")
             word_len()
             continue
+        #record guessed letters
         used_letters.append(user_input)
         if user_input in word:
             hanging([i for i, c in enumerate(word) if c == user_input],user_input)
@@ -51,12 +56,14 @@ def play():
 print("Welcome to Hangman!")
 
 while True:
+    #setting letters and blanks to zero for new game and choosing new word
     used_letters = []
     choose_word()
     blanks = [("_ ") for i in range(len(word))]
     for i in blanks:
         print(i, end="")
     play()
+    #making sure "yes" or "no" are picked
     q = input("Would you like to play again? (y/n): ")
     while q != "y" and q != "n":
         q = input("Would you like to play again? (y/n): ")
