@@ -1,0 +1,6 @@
+import random
+word = []
+with open('sowpods.txt', 'r') as f:
+    line = f.readlines()
+    word = random.choice(line).strip()
+    print(word)
