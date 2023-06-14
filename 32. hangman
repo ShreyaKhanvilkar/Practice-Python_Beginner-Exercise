@@ -10,7 +10,7 @@ def choose_word():
     with open('sowpods.txt', 'r') as f:
         line = f.readlines()
         global word
-        word = random.choice(line).strip()
+        word = random.choice(line).strip().upper()
         print(word)
 
 #printing the word characters as they are being guessed
