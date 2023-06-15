@@ -1,2 +1,2 @@
 # Practice Python
-My code from Practic Python's coding problems.
+My code from Practice Python's coding problems.
